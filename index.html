@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundo Animado com Morcegos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      background-color: #000;
+    }
+
+    .background-img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: auto;
+      animation: moveBackground 3s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .modal-title {
+      color: white; 
+    }
+    .modal-header {
+      background-color: #ff69b4; 
+      color: white; 
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #FFF;
+      border-radius: 50%;
+      animation: twinkling 5s infinite;
+    }
+
+    @keyframes twinkling {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        width: 100%;
+        padding: 20px;
+      }
+
+      #btn {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    #btn {
+      font-size: medium;
+      border-radius: 100px;
+      border: none;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMKkduQn0DKpVNFZPz4EInjLiXcrtLZXKjHQ&s');
+      background-size: cover;
+      padding: 20px 40px; 
+      color: white;
+      text-shadow: 1px 1px 1px black;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://hypescience.com/wp-content/uploads/2015/09/morcego-banana.gif" class="background-img" alt="Morcegos Voando">
+  <div class="content-wrapper">
+    <button type="button" id="btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Clique
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">REINO KAWAII DO RIBERÃO CARLOS</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="https://2.bp.blogspot.com/-Md50yYJeBDA/Txdbww5WQKI/AAAAAAAAVK8/sESTZ1ci9xs/s1600/583.gif" class="img-fluid" alt="GIF">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const numStars = 300; 
+
+      for (let i = 0; i < numStars; i++) {
+        createStar();
+      }
+
+      function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        document.body.appendChild(star);
+      }
+    });
+  </script>
+</body>
+</html>
